@@ -12,6 +12,7 @@ default: &default
   password: bootcamp2
   timeout: 5000
 
+
 development:
   <<: *default
   database: todolist_development
