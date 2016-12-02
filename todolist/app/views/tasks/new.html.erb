@@ -1,2 +1,35 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<% form_name ||= "Manage" %>
+<h1 class="text-center">  <%= form_name %> Task </h1>
+<%= form_for @task , method: (form_name.downcase == 'edit' ? 'put' : 'post') do |f| %>
+  <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@task.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description%>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :finish_date%>
+    <%= f.date_field :finish_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :priority%>
+    <%= f.text_field :priority, class: "form-control" %>
+  </div>
+  <%= f.submit "#{form_name} task", class: "btn btn-primary" %>
+  <a href="<%= tasks_path %>" class="btn btn-default"> View all </a>
+<% end %>
