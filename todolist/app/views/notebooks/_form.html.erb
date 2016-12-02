@@ -15,8 +15,11 @@
       </div>
     <% end %>
   <div class="form-group">
-    <%= f.label :name%>
+
+    <label>Name Notebook</label>
     <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :Propietario %>
+    <input type="text" class: "form-control" value=<%=current_user.email%> id="cantidad" readonly="readonly"></input>
   </div>
   <%= f.submit "#{form_name} notebook", class: "btn btn-primary" %>
   <a href="<%= notebooks_path %>" class="btn btn-default"> View all </a>

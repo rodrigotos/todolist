@@ -9,7 +9,7 @@ class NotebooksController < ApplicationController
     end
 
     def edit
-      find_airline
+      find_notebook
       if @notebooks.nil?
         flash[:error] = "Houston we are in troubles, please dont hack us."
         redirect_to root_path
@@ -18,6 +18,7 @@ class NotebooksController < ApplicationController
 
     def create
       @notebooks = Notebook.new(notebook_params)
+      @notebooks.user=current_user
       if @notebooks.save
         redirect_to notebooks_path
       else
@@ -27,20 +28,20 @@ class NotebooksController < ApplicationController
     end
 
     def destroy
-      find_airline
+      find_notebook
       if @notebooks.destroy
         flash[:success] = "Airline Destroyed Successfully"
       else
         flash[:error] = "Houston we are in troubles, please try it later"
       end
-      redirect_to airlines_path
+      redirect_to notebooks_path
     end
 
     def update
-      find_airline
+      find_notebook
       if @notebooks.update(notebook_params)
-        flash[:success] = "Airline updated. Ok"
-        redirect_to airlines_path
+        flash[:success] = "Notebooks updated. Ok"
+        redirect_to notebooks_path
       else
         flash[:error] = "Houston we are in troubles, try it again."
         render 'edit'
@@ -49,18 +50,17 @@ class NotebooksController < ApplicationController
 
 
     def show
-      find_airline
-      if @notebooks.nil?
-        flash[:error] = "Houston we are in troubles, please dont hack us."
-        redirect_to root_path
-      end
-    end
-
+   find_notebook
+   if @notebooks.nil?
+     flash[:error] = "Houston we are in troubles, please dont hack us."
+     redirect_to root_path
+   end
+ end
 
 
     private
 
-    def find_airline
+    def find_notebook
       @notebooks = Notebook.find_by(id: params[:id])
     end
 
@@ -68,5 +68,5 @@ class NotebooksController < ApplicationController
     def notebook_params
       params.require(:notebook).permit(:name)
     end
-    
+
   end
