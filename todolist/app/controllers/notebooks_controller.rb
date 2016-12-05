@@ -30,7 +30,7 @@ class NotebooksController < ApplicationController
     def destroy
       find_notebook
       if @notebooks.destroy
-        flash[:success] = "Airline Destroyed Successfully"
+        flash[:success] = "Notebook Destroyed Successfully"
       else
         flash[:error] = "Houston we are in troubles, please try it later"
       end
@@ -49,15 +49,13 @@ class NotebooksController < ApplicationController
     end
 
 
-    def show
+  def show
    find_notebook
    if @notebooks.nil?
      flash[:error] = "Houston we are in troubles, please dont hack us."
      redirect_to root_path
    end
- end
-
-
+  end
     private
 
     def find_notebook

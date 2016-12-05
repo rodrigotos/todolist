@@ -1,14 +1,18 @@
 <div class="container">
   <h1 class="text-center"> Tasks </h1>
   <section class="row text-center">
-      <a href="<%= tasks_new_path %>" class="btn btn-default"> New Task </a>
+      <a href="<%= new_task_path %>" class="btn btn-default"> New Task </a>
   </section>
   <% @tasks.each do |t| %>
     <article>
       <ul>
         <li class="col-md-2"><strong><%= t.name %></strong></li>
         <li class="col-md-2"><strong><%= t.created_at %></strong></li>
-        <li class="col-md-2"><strong><%= t.priority %></strong></li>      
+        <li class="col-md-2"><strong><%= t.priority %></strong></li>
+        <li class="col-md-1"><a href="<%= tasks_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+        <li class="col-md-1"><a href="<%= edit_task_path(a.id) %>" class="btn btn-primary"> Edit </a></li>
+        <li class="col-md-1"><a href="<%= tasks_path(a.id) %>" class="btn btn-info"> Show </a></li>
+
       </ul>
     </article>
   <% end if @tasks.any? %>

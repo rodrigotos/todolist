@@ -14,15 +14,9 @@ Rails.application.routes.draw do
           registrations: 'users/registrations'
   }
 
-  get 'tasks/index'
-
-  get 'tasks/new'
-
-  get 'tasks/update'
-
-  get 'tasks/delete'
 
   resources :notebooks
+  resources :tasks
 
   root 'static_pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
