@@ -9,7 +9,7 @@
         <li class="col-md-2"><strong><%= t.name %></strong></li>
         <li class="col-md-2"><strong><%= t.created_at %></strong></li>
         <li class="col-md-2"><strong><%= t.priority %></strong></li>
-        <li class="col-md-1"><a href="<%= tasks_path(t.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+        <li class="col-md-1"><a href="<%= task_path(t.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
         <li class="col-md-1"><a href="<%= edit_task_path(t.id) %>" class="btn btn-primary"> Edit </a></li>
 
       </ul>
