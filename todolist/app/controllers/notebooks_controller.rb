@@ -55,6 +55,14 @@ class NotebooksController < ApplicationController
      flash[:error] = "Houston we are in troubles, please dont hack us."
      redirect_to root_path
    end
+
+   def addtask
+     find_notebook
+     if @notebooks.nil?
+       flash[:error] = "Houston we are in troubles, please dont hack us."
+       redirect_to notebooks_addtask_path
+     end
+   end
   end
     private
 
