@@ -1,5 +1,5 @@
 class NotebooksController < ApplicationController
-
+    before_action :authenticate_user!
     def index
       @notebooks = Notebook.all
     end
@@ -18,11 +18,11 @@ class NotebooksController < ApplicationController
 
     def create
       @notebooks = Notebook.new(notebook_params)
-      @notebooks.user=current_user
+      @notebooks.user = current_user
       if @notebooks.save
         redirect_to notebooks_path
-      else
         flash[:success] = "Notebook created. Ok"
+      else
         render 'new'
       end
     end

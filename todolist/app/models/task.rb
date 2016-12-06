@@ -7,4 +7,5 @@ class Task < ApplicationRecord
   accepts_nested_attributes_for :notebooktasks
   accepts_nested_attributes_for :taskusers
 
+  validates :name , :priority, presence: true
 end

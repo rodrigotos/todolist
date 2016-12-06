@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   def index
     @tasks = Task.all
   end
@@ -31,7 +32,10 @@ class TasksController < ApplicationController
 
 
   def destroy
-    @task = Task.find_by(id: params[:id])
+    @tasks = UserTask.find_by(task_id: params[:id])
+  #  if @
+
+  #  end
     if @task.destroy
       flash[:success] = "Task Destroyed Successfully"
     else
@@ -42,7 +46,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find_by(id: params[:id])
-    if @tasks.update(task_params)
+    if @task.update(task_params)
       flash[:success] = "Task updated. Ok"
       redirect_to tasks_path
     else
