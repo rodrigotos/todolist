@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def new
@@ -32,15 +32,30 @@ class TasksController < ApplicationController
 
 
   def destroy
-    @tasks = UserTask.find_by(task_id: params[:id])
-  #  if @
-
-  #  end
-    if @task.destroy
-      flash[:success] = "Task Destroyed Successfully"
+    @user_tasks_count = UserTask.where(task_id: params[:id]).count
+    if @user_tasks_count > 1
+      # Elimino sólo la relación
+      @user_task = UserTask.where(task_id: params[:id]).where(:user_id => current_user).first
+      if @user_task.destroy
+        flash[:success] = "Yoy don`t have already this task"
+      else
+        flash[:error] = "Houston we are in troubles, please try it later"
+      end
     else
-      flash[:error] = "Houston we are in troubles, please try it later"
+      # Elimino la relación y la tarea
+      @user_task = UserTask.where(task_id: params[:id]).where(:user_id => current_user).first
+      if @user_task.destroy
+        @task = Task.find_by(id: params[:id])
+        if @task.destroy
+          flash[:success] = "Yoy don`t have already this task"
+        else
+          flash[:error] = "Houston we are in troubles, please try it later"
+        end
+      else
+        flash[:error] = "Houston we are in troubles, please try it later"
+      end
     end
+
     redirect_to tasks_path
   end
 
