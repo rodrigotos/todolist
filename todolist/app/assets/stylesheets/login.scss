@@ -4,10 +4,48 @@
     background-color: #eee;
 }*/
 
+/*main*/
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+li {
+    height: 50px;
+}
+
+span {
+    color: #ff586d;
+}
+
+.icono_centro {
+    margin-left: 30px;
+}
+
 .boton-color {
     background-color: #ff586d;
     border-color: #46b8da;
     color: white;
+}
+
+.nav-frente {
+  z-index: 100;
+}
+/*login full screen*/
+
+
+/*login*/
+.boton-color {
+    background-color: #ff586d;
+    border-color: #46b8da;
+    color: white;
+}
+
+.boton-color-dos {
+  background-color: #B22C3D;
+  border-color: #46b8da;
+  color: white;
 }
 
 .btn {
@@ -27,14 +65,15 @@
 }
 
 .fullscreen_bg {
-    position: relative;;
+    padding-top: 100px;
+    position: absolute;;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url('/Users/cjc2/desktop/proyecto_list/todolist/todolist/app/assets/images/bg-login.jpg');
+    background-image: url('https://s16.postimg.org/9mi5343id/bg_login.jpg');
     background-repeat: repeat;
 }
 
@@ -104,4 +143,141 @@
     color: #fff;
     text-align: center;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  color: white;
+
+}
+
+/*sidebar*/
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #f8f8f8;
+    border-right: 2px solid #ececec;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 160px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #3c3c3c;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #3c3c3c;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 162px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }

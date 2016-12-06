@@ -10,9 +10,19 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default nav-frente">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <a class="navbar-brand" href="<%= root_path %>">TodoList<%= current_user ? "| #{current_user.email}" : '' %></a>
+        <a class="navbar-brand" href="<%= root_path %>">TodoList<%= current_user ? "| #{current_user.email}" : '' %>
+       <img src="https://s18.postimg.org/c0pw9zr55/homework.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <ul class="nav navbar-nav navbar left">
+          <li>
+              <a href="<%= tasks_path%>"><span class="glyphicon glyphicon-plus icono_centro" aria-hidden="true"></span></a>
+          </li>
+          <li>
+              <a href="<%= notebooks_path%>"><span class="glyphicon glyphicon-list-alt icono_centro" aria-hidden="true"></span></a>
+          </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             <% if !current_user %>
               <li><a href="<%= new_user_session_path %>">Log in</a></li>
