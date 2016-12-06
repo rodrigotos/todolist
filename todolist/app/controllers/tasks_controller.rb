@@ -9,12 +9,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: params[:current_user])
     @task = Task.new(task_params)
-    @task.users << @user
     if @task.save
-      flash[:success] = "Task created. Ok"
-      redirect_to tasks_path
+      @task.users << current_user
+      if @task.save
+        flash[:success] = "Task created. Ok"
+        redirect_to tasks_path
+      end
     else
       render 'new'
     end
