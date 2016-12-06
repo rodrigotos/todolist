@@ -2,8 +2,9 @@
 <h1 class="text-center">  <%= form_name %> notebook </h1>
 <%= form_for @notebooks , method: (form_name.downcase == 'edit' ? 'put' : 'post') do |f| %>
   <% if @notebooks.errors.any? %>
-      <div id="error_explanation">
+      <div class="error" id="error_explanation">
         <h2>
+          <i class="fa fa-times-circle"></i>
           <%= pluralize(@notebooks.errors.count, "error") %> prohibited
           this article from being saved:
         </h2>
@@ -18,7 +19,7 @@
 
     <label>Name Notebook</label>
     <%= f.text_field :name, class: "form-control" %>
-    <%= f.label :Propietario %>
+    <%= f.label :User %>
     <input type="text" class: "form-control" value=<%=current_user.email%> id="cantidad" readonly="readonly"></input>
   </div>
   <%= f.submit "#{form_name} notebook", class: "btn btn-lg boton-color btn-block" %>

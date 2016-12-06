@@ -4,6 +4,7 @@
   <% if @task.errors.any? %>
       <div class="error" id="error_explanation">
         <h2>
+          <i class="fa fa-times-circle"></i>
           <%= pluralize(@task.errors.count, "error") %> prohibited
           this article from being saved:
         </h2>
