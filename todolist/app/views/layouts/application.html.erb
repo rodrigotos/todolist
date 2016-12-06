@@ -33,7 +33,7 @@
        </div>
     </nav>
     <% if flash[:success] or flash[:error] or flash[:notice]%>
-    <span class="flash-message <%= flash[:success] ? 'success' : flash[:error] ? 'error' : flash[:notice] ? 'notice' : '' %>">
+    <span class="fa fa-check success flash-message <%= flash[:success] ? 'success' : flash[:error] ? 'error' : flash[:notice] ? 'notice' : '' %>">
       <%= flash[:success] ? flash[:success] : flash[:error] ? flash[:error] : flash[:notice] ? flash[:notice] : '' %>
     </span>
     <% end %>
