@@ -1,15 +1,14 @@
 <div class="container">
   <h1 class="text-center"> Notebooks </h1>
   <section class="row text-center cities-controls">
-      <a href="<%= new_notebook_path %>" class="btn btn-default"> New Notebook </a>
+      <a href="<%= new_notebook_path %>" class="btn btn-lg boton-color btn-block"> New Notebook </a>
   </section>
   <% @notebooks.each do |a| %>
     <article class="row city">
-      <ul>
+      <ul class="view-padding li-view">
         <li class="col-md-2"><strong><%= a.name %></strong></li>
         <li class="col-md-1"><a href="<%= notebook_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
         <li class="col-md-1"><a href="<%= edit_notebook_path(a.id) %>" class="btn btn-primary"> Edit </a></li>
-        <li class="col-md-1"><a href="<%= notebook_path(a.id) %>" class="btn btn-info"> Show </a></li>
       </ul>
     </article>
   <% end if @notebooks.any? %>

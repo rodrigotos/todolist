@@ -1,18 +1,16 @@
-<div id="fullscreen_bg" class="fullscreen_bg" />
 <div class="container">
-  <h1 class="text-center form-signin-heading"> Tasks </h1>
+  <h1 class="text-center"> Tasks </h1>
   <section class="row text-center">
       <a href="<%= new_task_path %>" class="btn btn-lg boton-color btn-block"> New Task </a>
   </section>
   <% @tasks.each do |t| %>
     <article>
-      <ul>
+      <ul class="view-padding li-view">
         <li class="col-md-2"><strong><%= t.name %></strong></li>
         <li class="col-md-2"><strong><%= t.created_at %></strong></li>
         <li class="col-md-2"><strong><%= t.priority %></strong></li>
         <li class="col-md-1"><a href="<%= tasks_path(t.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
         <li class="col-md-1"><a href="<%= edit_task_path(t.id) %>" class="btn btn-primary"> Edit </a></li>
-        <li class="col-md-1"><a href="<%= tasks_path(t.id) %>" class="btn btn-info"> Show </a></li>
 
       </ul>
     </article>

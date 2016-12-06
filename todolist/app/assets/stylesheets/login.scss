@@ -13,6 +13,11 @@ html {
 
 li {
     height: 50px;
+    text-transform: lowercase;
+}
+
+li::first-letter {
+  text-transform: uppercase;
 }
 
 span {
@@ -32,6 +37,16 @@ span {
 .nav-frente {
   z-index: 100;
 }
+
+.view-padding {
+  padding-top: 70px;
+}
+
+.li-view {
+  list-style: none;
+  margin-left: 170px;
+}
+
 /*login full screen*/
 
 
