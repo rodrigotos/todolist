@@ -9,7 +9,6 @@
         <li class="col-md-2"><strong><%= a.name %></strong></li>
         <li class="col-md-1"><a href="<%= notebook_path(a.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
         <li class="col-md-1"><a href="<%= edit_notebook_path(a.id) %>" class="btn btn-primary"> Edit </a></li>
-        <li class="col-md-1"><a href="<%= notebooks_addtask_path(a.id) %>" class="btn btn-info"> Add Tasks </a></li>
       </ul>
     </article>
   <% end if @notebooks.any? %>
